@@ -20,6 +20,16 @@ public class StringArt2AsciiArt extends AsciiArt {
     @Override
     public String[] getLineas() {
         String[] n = animal.Dibujo().split("\n");
+        int longitud = n[0].length();
+
+        for(String s: n){
+            if(s.length() >= longitud)
+                longitud = s.length();
+        }
+        for(int i=0; i<n.length; i++){
+            int espacios = longitud-n[i].length();
+            n[i] += String.valueOf(' ').repeat(espacios);
+        }
         return n;
     }
 }
